@@ -33,7 +33,7 @@ namespace TowhidulsBHsoftWebStore.WebAPI.Controllers
             {
                 return NotFound("Student id must be higher than zero");
             }
-            Supplier Supplier = _adminContext.Supplier.FirstOrDefault(s => s.SupplierID == id);
+            Supplier Supplier = _adminContext.Supplier.FirstOrDefault(s => s.SupplierId == id);
             if (Supplier == null)
             {
                 return NotFound("Supplier not found");
@@ -64,7 +64,7 @@ namespace TowhidulsBHsoftWebStore.WebAPI.Controllers
             {
                 return NotFound("Id is not supplied");
             }
-            Supplier Supplier = _adminContext.Supplier.FirstOrDefault(s => s.SupplierID == id);
+            Supplier Supplier = _adminContext.Supplier.FirstOrDefault(s => s.SupplierId == id);
             if (Supplier == null)
             {
                 return NotFound("No Supplier found with particular id supplied");

@@ -34,7 +34,7 @@ namespace TowhidulsBHsoftWebStore.WebAPI.Controllers
             {
                 return NotFound("Process id must be higher than zero");
             }
-            SupplierProcessNpractice company = _CompanyContext.SupplierProcessNpractice.FirstOrDefault(s => s.ProcessID == id);
+            SupplierProcessNpractice company = _CompanyContext.SupplierProcessNpractice.FirstOrDefault(s => s.ProcessId == id);
             if (company == null)
             {
                 return NotFound("Process not found");
@@ -65,7 +65,7 @@ namespace TowhidulsBHsoftWebStore.WebAPI.Controllers
             {
                 return NotFound("Id is not supplied");
             }
-            SupplierProcessNpractice company = _CompanyContext.SupplierProcessNpractice.FirstOrDefault(s => s.ProcessID == id);
+            SupplierProcessNpractice company = _CompanyContext.SupplierProcessNpractice.FirstOrDefault(s => s.ProcessId == id);
             if (company == null)
             {
                 return NotFound("No Company found with particular id supplied");

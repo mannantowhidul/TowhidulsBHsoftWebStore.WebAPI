@@ -34,7 +34,7 @@ namespace TowhidulsBHsoftWebStore.WebAPI.Controllers
             {
                 return NotFound("Request id must be higher than zero");
             }
-            BuyerRequestSubmission company = _CompanyContext.BuyerRequestSubmission.FirstOrDefault(s => s.RequestID == id);
+            BuyerRequestSubmission company = _CompanyContext.BuyerRequestSubmission.FirstOrDefault(s => s.RequestId == id);
             if (company == null)
             {
                 return NotFound("Request not found");
@@ -65,7 +65,7 @@ namespace TowhidulsBHsoftWebStore.WebAPI.Controllers
             {
                 return NotFound("Id is not supplied");
             }
-            BuyerRequestSubmission company = _CompanyContext.BuyerRequestSubmission.FirstOrDefault(s => s.RequestID == id);
+            BuyerRequestSubmission company = _CompanyContext.BuyerRequestSubmission.FirstOrDefault(s => s.RequestId == id);
             if (company == null)
             {
                 return NotFound("No Request found with particular id supplied");

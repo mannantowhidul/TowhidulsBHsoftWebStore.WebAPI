@@ -34,7 +34,7 @@ namespace TowhidulsBHsoftWebStore.WebAPI.Controllers
             {
                 return NotFound("Company id must be higher than zero");
             }
-            Company company = _CompanyContext.Company.FirstOrDefault(s => s.CompanyID == id);
+            Company company = _CompanyContext.Company.FirstOrDefault(s => s.CompanyId == id);
             if (company == null)
             {
                 return NotFound("Company not found");
@@ -65,7 +65,7 @@ namespace TowhidulsBHsoftWebStore.WebAPI.Controllers
             {
                 return NotFound("Id is not supplied");
             }
-            Company company = _CompanyContext.Company.FirstOrDefault(s => s.CompanyID == id);
+            Company company = _CompanyContext.Company.FirstOrDefault(s => s.CompanyId == id);
             if (company == null)
             {
                 return NotFound("No Company found with particular id supplied");

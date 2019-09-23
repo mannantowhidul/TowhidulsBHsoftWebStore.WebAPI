@@ -24,5 +24,54 @@ namespace TowhidulsBHsoftWebStore.WebAPI.Controllers
         {
             return _adminContext.Admin.ToList();
         }
+
+        [HttpGet]
+        [Route("getbyid/{id}")]
+        public ActionResult<Admin> GetById(int id)
+        {
+            if (id <= 0)
+            {
+                return NotFound("Admin id must be higher than zero");
+            }
+            Admin admin = _adminContext.Admin.FirstOrDefault(s => s.AdminId == id);
+            if (admin == null)
+            {
+                return NotFound("Admin not found");
+            }
+            return Ok(admin);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Post([FromBody]Admin admin)
+        {
+            if (admin == null)
+            {
+                return NotFound("Admin data is not supplied");
+            }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            await _adminContext.Admin.AddAsync(admin);
+            await _adminContext.SaveChangesAsync();
+            return Ok(admin);
+        }
+
+        [HttpDelete("deleteByid/{id}")]
+        public async Task<ActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound("Id is not supplied");
+            }
+            Admin admin = _adminContext.Admin.FirstOrDefault(s => s.AdminId == id);
+            if (admin == null)
+            {
+                return NotFound("No Administrator found with particular id supplied");
+            }
+            _adminContext.Admin.Remove(admin);
+            await _adminContext.SaveChangesAsync();
+            return Ok("Buyer is deleted sucessfully.");
+        }
     }
 }

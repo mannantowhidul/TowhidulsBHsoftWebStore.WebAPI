@@ -1,0 +1,53 @@
+﻿@model IEnumerable<UI.TowhidulsBHsoftWebStore.WebAPI.Models.SupplierProcessNpracticeData>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcessId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcessName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Practice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcessId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcessName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Practice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
